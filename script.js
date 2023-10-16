@@ -69,3 +69,39 @@ for (let i = 0; i < randomNumbers.length; i++) {
   }
 
 }
+
+
+// crear un nuevo array donde los numeros esten multiplicados por 100
+
+
+let nuevoArray = randomNumbers.map( (number, index) => {
+  // map tambien ejecuta la funcion por cada elemento
+  console.log(number * 100)
+  // espere recrear un nuevo array con cada uno de los elementos modificados. Deben ser retornados.
+  if (number < 10) {
+    return number * 100
+  } else {
+    return number
+  }
+} )
+
+console.log(nuevoArray)
+
+
+
+// crear una funcion que reciba un array de numeros y creen un array de mensajes
+
+function convertToString( numbersArr ) {
+
+  let stringsArr = numbersArr.map((element, index) => {
+
+    return `El numero ${index} es: ${element}`
+
+  })
+
+  return stringsArr
+
+}
+
+
+console.log( convertToString(randomNumbers) )
