@@ -149,3 +149,58 @@ let foundCar = cars.find((eachCar) => {
 })
 
 console.log(foundCar)
+
+
+// Reduce
+
+
+let someNumbers = [ 4, 8, 15, 16, 23, 42 ]
+
+
+
+
+
+
+let sum = someNumbers.reduce( (acc, eachNumber) => {
+  console.log("acc", acc)
+  console.log("eachNumber", eachNumber)
+  // el reduce espera que retornemos el proximo valor del acumulador
+  return acc + eachNumber
+}, 0 )
+// si no agregamos el valor inicial del acc, toma como valor el primer elemento del array
+
+console.log(sum)
+
+
+let people = [
+  { name: "Jorge", candy: 10 },
+  { name: "Leidy" },
+  { name: "Antonio", candy: 20 },
+  { name: "Ruth", candy: 12 },
+]
+
+let total = people.reduce((acc, eachElement) => {
+
+  console.log(acc, eachElement.candy)
+
+  if ( eachElement.candy ) {
+    return acc + eachElement.candy
+  } else {
+    return acc // continua la suma sin ningun tipo de cambios
+  }
+
+}, 0)
+
+console.log(total)
+
+let namesPhrase = people.reduce((acc, element, index) => {
+
+  // if (index === people.length - 1) {
+    // return acc + element.name
+  // } else {
+    return acc + element.name + ", "
+  // }
+
+}, "")
+
+console.log(namesPhrase.slice(0, -2))
