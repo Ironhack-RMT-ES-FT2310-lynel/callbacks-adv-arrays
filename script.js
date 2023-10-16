@@ -204,3 +204,65 @@ let namesPhrase = people.reduce((acc, element, index) => {
 }, "")
 
 console.log(namesPhrase.slice(0, -2))
+
+
+
+// reverse()
+
+
+let orderedNumbers = [1, 2, 3, 4, 5]; // ref 5678
+
+// let numbers = orderedNumbers // no es clonar.  ref 5678
+
+// aprendemos a clonar arrays
+
+// Shallow Cloning => clonar unicamente la referencia del array. No la referencia de cualquier objeto anidado.
+// let clone = orderedNumbers.slice(0) // ref 9898
+// let clone = orderedNumbers.map((element) => {
+//   return element
+// })
+
+// Deep Cloning => clonar TODOS los niveles de la data
+let clone = JSON.parse( JSON.stringify( orderedNumbers ) )
+// 1. "[1, 2, 3, 4, 5]"
+// 2. [1, 2, 3, 4, 5] // ref 9898
+console.log(clone)
+
+clone.reverse() // ref 9898
+
+console.log(clone) // ref 9898
+
+console.log("orderedNumbers", orderedNumbers) // ref 5678
+
+// reverse y sort mutan el array original
+
+
+// sort()
+
+let someLettters = ["a", "e", "b", "c", "d"]
+
+let cloneLetters = JSON.parse( JSON.stringify(someLettters) )
+
+cloneLetters.sort()
+console.log(cloneLetters)
+
+let numbers = [4, 10, 200, 3, 40]
+
+let cloneNumbers = JSON.parse( JSON.stringify(numbers) )
+
+cloneNumbers.sort( (elem1, elem2) => {
+  console.log(elem1, elem2)
+  // el algoritmo de orden a aplicar
+  // debemos devolver 3 posibles valores:
+  // 1. un numero negativo (si el primero va antes)
+  // 2. un numero positivo (si el segundo va antes)
+  // 3. un numero 0 si no deberia haber cambios
+  if (elem1 > elem2) {
+    return 1
+  } else if (elem2 > elem1) {
+    return -1
+  } else {
+    return 0
+  }
+})
+console.log(cloneNumbers)
