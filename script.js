@@ -95,7 +95,7 @@ function convertToString( numbersArr ) {
 
   let stringsArr = numbersArr.map((element, index) => {
 
-    return `El numero ${index} es: ${element}`
+    return `El numero ${index} es: ${element}` // hace un push al array
 
   })
 
@@ -105,3 +105,47 @@ function convertToString( numbersArr ) {
 
 
 console.log( convertToString(randomNumbers) )
+
+
+// Filter
+
+let cars = [
+  { brand: "Mercedez", year: 2012, weight: 0.8  },
+  { brand: "Porsche", year: 2010, weight: 1 },
+  { brand: "Bugatti", year: 2003, weight: 0.5 },
+  { brand: "Volvo", year: 2010, weight: 1.9 },
+  { brand: "Seat", year: 2015, weight: 0.6 },
+  { brand: "Porsche", year: 2020, weight: 1.8 },
+]
+
+// crear un array solo con los coches de 2012 en adelante
+
+let filteredCars = cars.filter( (eachCar) => {
+  console.log(eachCar)
+  // filter espera que le retornemos un booleano
+  if ( eachCar.year >= 2012 ) {
+    // true => agregalo al array
+    return true
+  } else {
+    // false => no lo agregues al array
+    return false
+  }
+
+  // o...
+  // return eachCar.year >= 2012
+
+} )
+
+console.log(filteredCars)
+
+
+// BONUS => .find()
+
+// el filter siempre nos arroja un array con todas las busquedas
+// el find siempre nos arroja el primer elemento del array que consigue
+
+let foundCar = cars.find((eachCar) => {
+  return eachCar.brand === "Porsche"
+})
+
+console.log(foundCar)
